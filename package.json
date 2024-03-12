@@ -1,0 +1,20 @@
+{
+  "name": "@itsy/animate",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    "./move": {
+      "types": "./move.d.ts",
+      "import": "./move.js"
+    }
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "devDependencies": {
+    "vite": "^5.1.4"
+  },
+  "author": "Dave Honneffer <pearofducks@gmail.com>",
+  "license": "MIT"
+}
