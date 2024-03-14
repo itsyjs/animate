@@ -31,6 +31,7 @@ export class Move {
 
   async play() {
     this.last = this.el.getBoundingClientRect()
+    if (!this.el.animate) return
     const animation = this.el.animate(this.keyframes, this.opts)
     await animation.finished
   }
