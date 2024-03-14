@@ -20,7 +20,7 @@ export class Move {
 
   async when(cb) {
     this.prep()
-    const v = cb()
+    const v = await cb()
     await this.play()
     return v
   }
