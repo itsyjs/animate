@@ -15,8 +15,8 @@ export class Move {
     this.el = el
     this.first = {}
     this.last = {}
-    this.opts = animation ?? animationDefaults
-    this.keyframeGenerator = keyframes ?? moveKeyframes
+    this.opts = animation || animationDefaults
+    this.keyframeGenerator = keyframes || moveKeyframes
     this.shouldReduceMotion = respectReduceMotion
   }
 
