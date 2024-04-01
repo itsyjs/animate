@@ -3,6 +3,8 @@ export interface Deltas {
   dy: number;
   dw: number;
   dh: number;
+  first: DOMRect;
+  last: DOMRect;
 }
 
 export interface MoveOptions {
@@ -23,5 +25,5 @@ export declare class Move {
   /** Stores the final position of the element then runs the move animation */
   play(): Promise<void>;
 
-  readonly keyframes: Keyframe[];
+  get keyframes(): Keyframe[];
 }

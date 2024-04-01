@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "nodenext",
+    "allowJs": true,
+    "checkJs": true,
+    "emitDeclarationOnly": true,
+    "lib": ["dom", "scripthost", "esnext"],
+    "target": "esnext"
+  },
+  "include": ["./src/**/*"]
+}

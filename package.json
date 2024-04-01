@@ -1,11 +1,21 @@
 {
   "name": "@itsy/animate",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "exports": {
+    "./accordion": {
+      "types": "./src/accordion.d.ts",
+      "import": "./src/accordion.js"
+    },
     "./move": {
-      "types": "./move.d.ts",
-      "import": "./move.js"
+      "types": "./src/move.d.ts",
+      "import": "./src/move.js"
+    },
+    "./reduce-motion": {
+      "import": "./src/reduce-motion.js"
+    },
+    "./utility": {
+      "import": "./src/utility.js"
     }
   },
   "scripts": {
@@ -13,7 +23,7 @@
     "build": "vite build"
   },
   "devDependencies": {
-    "vite": "^5.1.4"
+    "vite": "^5.2.7"
   },
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT"

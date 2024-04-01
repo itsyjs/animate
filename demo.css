@@ -32,6 +32,27 @@ section {
   overflow: hidden;
 }
 
+article {
+  margin-top: 32px;
+  border-radius: 8px;
+  background-color: lightpink;
+}
+
+.x-title {
+  padding: 16px;
+  font-weight: bold;
+}
+.x-content {
+  overflow: hidden;
+}
+.x-content.collapsed {
+  height: 0px;
+}
+.x-content-inner {
+  padding: 16px;
+  padding-top: 0px;
+}
+
 .titlebar {
   display: grid;
   grid-template-columns: auto 1fr auto;

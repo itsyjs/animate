@@ -3,11 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./style.css" />
-    <title>Vite App</title>
+    <link rel="stylesheet" href="./demo.css" />
+    <title>@itsy/animate playground</title>
   </head>
   <body>
-    <button id="toggle">click</button>
+    <button id="toggle">toggle titlebar motion</button>
+    <button id="toggleExpand">toggle expandable</button>
+    <button id="toggleExpandWhen">toggle expandable using when</button>
     <hr/>
     <main>
       <section>
@@ -17,7 +19,18 @@
           <svg id="right" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="m9 13 5-5-5-5M2 13l5-5-5-5"></path></svg>
         </div>
       </section>
+
+      <article>
+        <div class="x-title">Title area</div>
+        <div class="x-content" id="content" data-expanded="true">
+          <div class="x-content-inner" id="contentInner">
+            <p>Content</p>
+            <p>Content</p>
+            <p>Content</p>
+          </div>
+        </div>
+      </article>
     </main>
-    <script type="module" src="/main.js"></script>
+    <script type="module" src="/demo.js"></script>
   </body>
 </html>

@@ -1,4 +1,5 @@
-import { getKeyframes, computeDeltas, animationDefaults } from './helpers'
+import { moveKeyframes, computeDeltas, animationDefaults } from './utility.js'
+import { reduceMotion } from './reduce-motion.js'
 
 export class Move {
   /** @type {DOMRect} */
@@ -10,12 +11,13 @@ export class Move {
   /** @type {KeyframeAnimationOptions} */
   animation;
 
-  constructor(el, { animation, keyframes } = {}) {
+  constructor(el, { animation, keyframes, respectReduceMotion = true } = {}) {
     this.el = el
     this.first = {}
     this.last = {}
     this.opts = animation ?? animationDefaults
-    this.keyframeGenerator = keyframes ?? getKeyframes
+    this.keyframeGenerator = keyframes ?? moveKeyframes
+    this.shouldReduceMotion = respectReduceMotion
   }
 
   async when(cb) {
@@ -32,11 +34,17 @@ export class Move {
   async play() {
     this.last = this.el.getBoundingClientRect()
     if (!this.el.animate) return
-    const animation = this.el.animate(this.keyframes, this.opts)
+    const animation = this.el.animate(this.keyframes, this.animationOptions)
     await animation.finished
   }
 
   get keyframes() {
     return this.keyframeGenerator(computeDeltas(this.first, this.last))
+  }
+
+  get animationOptions() {
+    if (!this.shouldReduceMotion) return this.opts
+    if (!reduceMotion) return this.opts
+    return { ...this.opts, duration: 0 }
   }
 }

@@ -10,10 +10,12 @@ export const computeDeltas = (first, last) => ({
   dy: first.top - last.top,
   dw: first.width / last.width,
   dh: first.height / last.height,
+  first,
+  last,
 })
 
 /** @param {Deltas} deltas */
-export const getKeyframes = ({ dx, dy }) => ([
+export const moveKeyframes = ({ dx, dy }) => ([
   { transform: `translate(${dx}px, ${dy}px)` },
   { transform: 'none' },
 ])
