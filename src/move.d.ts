@@ -8,13 +8,23 @@ export interface Deltas {
 }
 
 export interface MoveOptions {
-  animation?: KeyframeAnimationOptions;
+  /** https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect#options */
+  animation?: KeyframeEffectOptions;
+  /** An array of Keyframes - https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats */
   keyframes?: (deltas: Deltas) => Keyframe[];
+  /**
+   * Will respect prefers-reduced-motion when true and not animate
+   * @default true
+   */
+  respectReduceMotion?: boolean;
 }
 
 export declare class Move {
-  first: DOMRect;
-  last: DOMRect;
+  /** The initial state of the element */
+  first: DOMRect | {};
+  /** The final state of the element */
+  last: DOMRect | {};
+  /** The HTML element */
   el: HTMLElement;
 
   constructor(el: HTMLElement, opts?: MoveOptions);

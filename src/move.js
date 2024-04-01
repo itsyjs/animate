@@ -2,14 +2,12 @@ import { moveKeyframes, computeDeltas, animationDefaults } from './utility.js'
 import { reduceMotion } from './reduce-motion.js'
 
 export class Move {
-  /** @type {DOMRect} */
+  /** @type {DOMRect | {}} */
   first;
-  /** @type {DOMRect} */
+  /** @type {DOMRect | {}} */
   last;
   /** @type {HTMLElement} */
   el;
-  /** @type {KeyframeAnimationOptions} */
-  animation;
 
   constructor(el, { animation, keyframes, respectReduceMotion = true } = {}) {
     this.el = el
