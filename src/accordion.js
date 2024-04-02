@@ -1,16 +1,17 @@
 import { Move } from "./move.js"
 
 export class Accordion extends Move {
-  _change(newHeight) {
-    this.prep()
-    this.el.style.height = newHeight
-    return this.play()
+  _change(newHeight, cb) {
+    return this.when(() => {
+      this.el.style.height = newHeight
+      if (cb) return cb()
+    })
   }
-  expand() {
-    return this._change(null)
+  expand(cb) {
+    return this._change(null, cb)
   }
-  collapse() {
-    return this._change('0px')
+  collapse(cb) {
+    return this._change('0px', cb)
   }
   get keyframes() {
     return [

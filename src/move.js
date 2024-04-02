@@ -9,11 +9,11 @@ export class Move {
   /** @type {HTMLElement} */
   el;
 
-  constructor(el, { animation, keyframes, respectReduceMotion = true } = {}) {
+  constructor(el, { animation = {}, keyframes, respectReduceMotion = true } = {}) {
     this.el = el
     this.first = {}
     this.last = {}
-    this.opts = animation || animationDefaults
+    this.userAnimationOptions = animation
     this.keyframeGenerator = keyframes || moveKeyframes
     this.shouldReduceMotion = respectReduceMotion
   }
@@ -40,9 +40,17 @@ export class Move {
     return this.keyframeGenerator(computeDeltas(this.first, this.last))
   }
 
+  get defaults() {
+    return animationDefaults
+  }
+
+  get mergedOptions() {
+    return { ...this.defaults, ...this.userAnimationOptions }
+  }
+
   get animationOptions() {
-    if (!this.shouldReduceMotion) return this.opts
-    if (!reduceMotion) return this.opts
-    return { ...this.opts, duration: 0 }
+    if (!this.shouldReduceMotion) return this.mergedOptions
+    if (!reduceMotion) return this.mergedOptions
+    return { ...this.mergedOptions, duration: 0 }
   }
 }

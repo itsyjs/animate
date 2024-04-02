@@ -8,9 +8,16 @@ export interface Deltas {
 }
 
 export interface MoveOptions {
-  /** https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect#options */
+  /**
+   * Options controlling this animation
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/KeyframeEffect/KeyframeEffect#options
+   * @default { duration: 300, easing: 'ease' }
+   */
   animation?: KeyframeEffectOptions;
-  /** An array of Keyframes - https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats */
+  /**
+   * An array of Keyframes
+   * @see https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Keyframe_Formats
+   */
   keyframes?: (deltas: Deltas) => Keyframe[];
   /**
    * Will respect prefers-reduced-motion when true and not animate
@@ -21,9 +28,9 @@ export interface MoveOptions {
 
 export declare class Move {
   /** The initial state of the element */
-  first: DOMRect | {};
+  first: DOMRect;
   /** The final state of the element */
-  last: DOMRect | {};
+  last: DOMRect;
   /** The HTML element */
   el: HTMLElement;
 
@@ -36,4 +43,5 @@ export declare class Move {
   play(): Promise<void>;
 
   get keyframes(): Keyframe[];
+  get defaults(): KeyframeEffectOptions;
 }

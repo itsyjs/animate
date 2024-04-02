@@ -1,6 +1,6 @@
 {
   "name": "@itsy/animate",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "exports": {
     "./accordion": {
@@ -20,9 +20,11 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "vite build"
+    "build": "vite build",
+    "test": "node test"
   },
   "devDependencies": {
+    "happy-dom": "^14.3.9",
     "vite": "^5.2.7"
   },
   "author": "Dave Honneffer <pearofducks@gmail.com>",
