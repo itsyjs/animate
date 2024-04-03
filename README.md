@@ -32,7 +32,7 @@ import { Accordion } from '@itsy/animate/accordion'
 const myElement = document.querySelector('[data-my-element]')
 const move = new Accordion(myElement)
 accordion.when(() => {
-    myElement.classList.toggle('h-0') // css example -> .h-0 { height: 0 }
+  myElement.classList.toggle('h-0') // css example -> .h-0 { height: 0 }
 })
 ```
 
