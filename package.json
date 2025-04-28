@@ -1,6 +1,6 @@
 {
   "name": "@itsy/animate",
-  "version": "0.0.9",
+  "version": "1.0.0",
   "type": "module",
   "exports": {
     "./accordion": {
@@ -29,5 +29,6 @@
   },
   "author": "Dave Honneffer <pearofducks@gmail.com>",
   "license": "MIT",
-  "repository": "https://github.com/itsyjs/animate"
+  "repository": "https://github.com/itsyjs/animate",
+  "packageManager": "pnpm@10.5.0"
 }
