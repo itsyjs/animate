@@ -14,5 +14,6 @@ jobs:
       with:
         node-version: lts/*
         cache: 'pnpm'
-    - run: npm test
-    - run: npm build
+    - run: pnpm i
+    - run: pnpm test
+    - run: pnpm build
