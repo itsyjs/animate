@@ -17,3 +17,18 @@ jobs:
     - run: pnpm i
     - run: pnpm test
     - run: pnpm build
+    - uses: actions/upload-pages-artifact@v3
+      id: deployment
+      with:
+        path: dist/
+  pages:
+    runs-on: ubuntu-latest
+    needs: build
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+    - uses: actions/deploy-pages@v4
