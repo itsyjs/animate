@@ -42,11 +42,6 @@ export declare class Move {
   /** Stores the final position of the element then runs the move animation */
   play(): Promise<void>;
 
-  /** Called immediately before the animation plays during the when function */
-  before?(): void;
-  /** Called immediately after the animation plays during the when function */
-  after?(): void;
-
   get keyframes(): Keyframe[];
   get defaults(): KeyframeEffectOptions;
 }

@@ -7,12 +7,6 @@ export class Accordion extends Move {
       if (cb) return cb()
     })
   }
-  before() {
-    this.el.style.overflow = 'hidden'
-  }
-  after() {
-    this.el.style.overflow = null
-  }
   expand(cb) {
     return this._change(null, cb)
   }

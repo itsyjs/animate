@@ -2,12 +2,17 @@ import { moveKeyframes, computeDeltas, animationDefaults } from './utility.js'
 import { reduceMotion } from './reduce-motion.js'
 
 export class Move {
-  first = {};
-  last = {};
+  /** @type {DOMRect | {}} */
+  first;
+  /** @type {DOMRect | {}} */
+  last;
+  /** @type {HTMLElement} */
   el;
 
   constructor(el, { animation = {}, keyframes, respectReduceMotion = true } = {}) {
     this.el = el
+    this.first = {}
+    this.last = {}
     this.userAnimationOptions = animation
     this.keyframeGenerator = keyframes || moveKeyframes
     this.shouldReduceMotion = respectReduceMotion
@@ -16,9 +21,7 @@ export class Move {
   async when(cb) {
     this.prep()
     const v = await cb()
-    if (this.before) this.before()
     await this.play()
-    if (this.after) this.after()
     return v
   }
 
